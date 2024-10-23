@@ -1,0 +1,28 @@
+// Define the pin where the sensor is connected
+#define SENSOR_PIN A0    // You can use an analog pin like A0 or A1
+#define SENSOR_PIN_DIG 2 // Use a digital pin like D2 for checking digital behavior
+
+void setup() {
+  // Start the Serial Monitor
+  Serial.begin(9600);
+  
+  // Configure the digital pin as input
+  pinMode(SENSOR_PIN_DIG, INPUT);
+}
+
+void loop() {
+  // Read the analog value from the sensor
+  int analogValue = analogRead(SENSOR_PIN);
+
+  // Read the digital value from the sensor
+  int digitalValue = digitalRead(SENSOR_PIN_DIG);
+
+  // Print both analog and digital readings
+  Serial.print("Analog value: ");
+  Serial.print(analogValue);
+  Serial.print(" | Digital value: ");
+  Serial.println(digitalValue);
+
+  // Wait for a moment before reading again
+  delay(500);
+}
